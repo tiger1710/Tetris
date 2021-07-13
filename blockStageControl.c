@@ -5,6 +5,7 @@
 
 static int currentBlockModel;
 static int curPosR, curPosC;
+static int rotateSte;
 
 void InitNewBlockPos(const int r, const int c) {
     if (r < 0 || c < 0)
@@ -21,7 +22,7 @@ void ChooseBlock(void) {
 }
 
 int GetCurrentBlockIdx(void) {
-    return currentBlockModel;
+    return currentBlockModel + rotateSte;
 }
 
 void ShowBlock(const char blockInfo[][4]) {
@@ -54,6 +55,32 @@ void DeleteBlock(const char blockInfo[][4]) {
 void BlockDown(void) {
     DeleteBlock(blockModel[GetCurrentBlockIdx()]);
     curPosR++;
+
+    SetCurrentCursorPos(curPosR, curPosC);
+    ShowBlock(blockModel[GetCurrentBlockIdx()]);
+}
+
+void ShiftLeft(void) {
+    DeleteBlock(blockModel[GetCurrentBlockIdx()]);
+    curPosC -= 2;
+
+    SetCurrentCursorPos(curPosR, curPosC);
+    ShowBlock(blockModel[GetCurrentBlockIdx()]);
+}
+
+void ShiftRight(void) {
+    DeleteBlock(blockModel[GetCurrentBlockIdx()]);
+    curPosC += 2;
+
+    SetCurrentCursorPos(curPosR, curPosC);
+    ShowBlock(blockModel[GetCurrentBlockIdx()]);
+}
+
+void RotateBlock(void) {
+    DeleteBlock(blockModel[GetCurrentBlockIdx()]);
+
+    int nextRotSte = (rotateSte + 1) % 4;
+    rotateSte = nextRotSte;
 
     SetCurrentCursorPos(curPosR, curPosC);
     ShowBlock(blockModel[GetCurrentBlockIdx()]);
