@@ -13,4 +13,10 @@ void DeleteBlock(const char blockInfo[][4]);
 
 void BlockDown(void);
 
+void ShiftLeft(void);
+
+void ShiftRight(void);
+
+void RotateBlock(void);
+
 #endif
