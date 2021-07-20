@@ -7,7 +7,7 @@ enable_testing()
 find_package(Curses REQUIRED)
 include_directories(${CURSES_INCLUDE_DIR})
 
-add_executable(Tetris tetrisMain.c blockStageControl.c keyCurControl.c)
+add_executable(Tetris tetrisMain.c blockStageControl.c keyCurControl.c scoreLevelControl.c)
 target_link_libraries(Tetris ${CURSES_LIBRARIES})
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
