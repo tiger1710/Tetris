@@ -2,7 +2,8 @@
 #define __POINT_H_
 
 typedef struct __point {
-    int r, c;
+    int r;
+    int c;
 } point;
 
 #endif
