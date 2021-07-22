@@ -1,5 +1,6 @@
+#include "scoreLevelControl.h"
 #include "keyCurControl.h"
-#include <ncurses.h>
+#include "common.h"
 
 #define LEVEL_DIFF 2
 #define LEVEL_UP_SCORE_DIFF 20
