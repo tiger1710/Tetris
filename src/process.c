@@ -1,14 +1,14 @@
-#include "blockStageControl.h"
+#include "process.h"
+#include "common.h"
 #include "keyCurControl.h"
+#include "blockStageControl.h"
 #include "scoreLevelControl.h"
-#include <ncurses.h>
-#include <unistd.h>
-#include <locale.h>
 
 #define START_CURPOS_R (0)
 #define START_CURPOS_C (10)
 
-int main(void) {
+void Initialize(void) {
+    srand((unsigned int)time(NULL));
     setlocale(LC_ALL, "");
     initscr();
     keypad(stdscr, true);
@@ -18,7 +18,9 @@ int main(void) {
     RemoveCursor();
     DrawGameBoard();
     ShowCurrentScoreAndLevel();
+}
 
+void StartGame(void) {
     while (true) {
         InitNewBlockPos(START_CURPOS_R + 2, START_CURPOS_C);
         ChooseBlock();
@@ -34,12 +36,13 @@ int main(void) {
             }
         }
     }
+}
+
+void Finalize(void) {
     SetCurrentCursorPos(10, 10);
     printw("GAME OVER ...");
     refresh();
-    sleep(3);
-    
-
+    sleep(5);
     endwin();
-    return 0;
 }
+

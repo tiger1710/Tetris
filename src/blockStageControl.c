@@ -3,7 +3,6 @@
 #include "keyCurControl.h"
 #include "blockStageControl.h"
 #include "scoreLevelControl.h"
-#include <ncurses.h>
 
 #define GBOARD_WIDTH 10
 #define GBOARD_HEIGHT 20

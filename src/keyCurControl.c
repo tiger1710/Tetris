@@ -1,7 +1,7 @@
+#include "keyCurControl.h"
+#include "common.h"
 #include "point.h"
 #include "blockStageControl.h"
-#include <unistd.h>
-#include <ncurses.h>
 
 #define KEY_SENSITIVE 100
 #define SYS_DELAY 20000
